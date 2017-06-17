@@ -21,6 +21,12 @@ public class Cas2MysqlConsumer extends JCasAnnotator_ImplBase {
 
 	//Error messages
 	public static final String MESSAGE_DIGEST = "br.com.rafael.uima.consumer.Cas2MysqlConsumer_Messages";
+	
+	//Parameters
+	public static final String PARAM_DATABASE = "database";
+	public static final String PARAM_URLCONNECTION = "urlConnection";
+	public static final String PARAM_TABLE = "table";
+	public static final String PARAM_DRIVER = "driver";
 
 	// Global Variables
 	private Logger logger = null;
@@ -43,10 +49,10 @@ public class Cas2MysqlConsumer extends JCasAnnotator_ImplBase {
 
 		logger.log(Level.INFO, "Retrieving parameters");
 
-		database = (String) aContext.getConfigParameterValue("database");
-		url = (String) aContext.getConfigParameterValue("urlConnection");
-		table = (String) aContext.getConfigParameterValue("table");
-		driver = (String) aContext.getConfigParameterValue("driver");
+		database = (String) aContext.getConfigParameterValue(PARAM_DATABASE);
+		url = (String) aContext.getConfigParameterValue(PARAM_URLCONNECTION);
+		table = (String) aContext.getConfigParameterValue(PARAM_TABLE);
+		driver = (String) aContext.getConfigParameterValue(PARAM_DRIVER);
 
 	}
 
