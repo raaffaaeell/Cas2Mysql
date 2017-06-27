@@ -79,7 +79,7 @@
 						<phase>package</phase>
 						<configuration>
 							<classpath>$main_root/lib/</classpath>
-							<mainComponentDesc>desc/${project.artifactId}.xml</mainComponentDesc>
+							<mainComponentDesc>desc/cas-consumer-mysql.xml</mainComponentDesc>
 							<componentId>${project.artifactId}</componentId>
 							<datapath>$main_root/resources</datapath>
 						</configuration>
