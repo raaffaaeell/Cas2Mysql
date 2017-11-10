@@ -73,7 +73,7 @@ public class AnnotationModelDao extends AbstractDao {
 				ps.addBatch();
 			}
 
-			logger.log(Level.INFO, "Executing batch");
+			logger.log(Level.INFO, "Executing sql batch");
 			ret = ps.executeBatch();
 
 		} catch (SQLException e) {

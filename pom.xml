@@ -39,12 +39,42 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.6</version>
-		</dependency>
+		
 	</dependencies>
+
+
+	<!-- Profiles configuration -->
+	<profiles>
+		<profile>
+			<id>mysql</id>
+			<properties>
+				<xml.descriptor>desc/cas-consumer-mysql.xml</xml.descriptor>
+				<component.name>Cas2Mysql</component.name>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+					<version>6.0.6</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		<!-- The configuration of the sqlite profile -->
+		<profile>
+			<id>sqlite</id>
+			<properties>
+				<xml.descriptor>desc/cas-consumer-sqlite.xml</xml.descriptor>
+				<component.name>Cas2Sqlite</component.name>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.xerial</groupId>
+					<artifactId>sqlite-jdbc</artifactId>
+					<version>3.16.1</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
@@ -79,8 +109,9 @@
 						<phase>package</phase>
 						<configuration>
 							<classpath>$main_root/lib/</classpath>
-							<mainComponentDesc>desc/cas-consumer-mysql.xml</mainComponentDesc>
-							<componentId>${project.artifactId}</componentId>
+							<!-- <mainComponentDesc>desc/cas-consumer-mysql.xml</mainComponentDesc>  -->
+							<mainComponentDesc>${xml.descriptor}</mainComponentDesc>
+							<componentId>${component.name}</componentId>
 							<datapath>$main_root/resources</datapath>
 						</configuration>
 						<goals>
